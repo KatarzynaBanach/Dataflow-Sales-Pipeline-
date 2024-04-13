@@ -1,2 +1,2 @@
-project = "digital-bonfire-419015"
+project = "phonic-altar-416918"
 credentials_file = "gcp_credentials.json"

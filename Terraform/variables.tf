@@ -3,15 +3,15 @@ variable "project" {}
 variable "credentials_file" {}
 
 variable "region" {
-    default = "us-central1"
+    default = "europe-central2"
 }
 
 variable "zone" {
-    default = "us-central1-a"
+    default = "europe-central2-a"
 }
 
 variable "location" {
-    default = "US"
+    default = "EU"
 }
 
 variable "storage_class" {
