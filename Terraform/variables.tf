@@ -1,0 +1,19 @@
+variable "project" {}
+
+variable "credentials_file" {}
+
+variable "region" {
+    default = "us-central1"
+}
+
+variable "zone" {
+    default = "us-central1-a"
+}
+
+variable "location" {
+    default = "US"
+}
+
+variable "storage_class" {
+    default = "STANDARD"
+}
