@@ -1,0 +1,1 @@
+(PL;Poland),(UK;United Kingdom),(US;United States),(DE;Germany),(FR;France),(IT;Italy),(IN;India),(BR;Brasil)

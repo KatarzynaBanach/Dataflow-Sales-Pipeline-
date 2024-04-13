@@ -1,0 +1,54 @@
+﻿client_id;name;second_name;lastname;birthdate;nationality;sex;phone_number;source;transaction_id;transation_date;item_id;price;brand
+c001;AnN;Joh$$nson;Rodrigue.?z;2020-01-02;PL;f;(123) 456-7890;face?book;0001;10.10.2024;34574;5PLN;Eisco
+c002;MaRK;Garcia;S&mith;1999.12.04;PL;m;987-654-3210;pinte%rest;0002;11.10.2024;54364;10PLN;Zenitha
+c003;NATALIE;;Pate$$l;1998-10-01;PL;f;+1 234-567-8901;direct;0003;12.10.2024;54364;10PLN;Zenitha
+c004;Amy;;Ki#m;22.04.2004;UK;f;876.543.2109;facebook;0004;13.10.2024;54364;10PLN;Zenitha
+c005;EVA;;Ki#m;;PL;-;+44 (0) 1234 567890;;0005;14.10.2024;54364;10PLN;TerraFusion
+c006;Amy;;Ki#m;22.04.2004;PL;f;(555) 123 4567;direct;0006;15.10.2024;34564;10PLN;Eisco
+c007;Sarah;Johnson;Brown;1990-03-20;UK;f;999-888-7777;pinterest;0007;16.10.2024;34564;10PLN;TerraFusion
+c008;Michael;Davis;Williams;1978-11-29;PL;m;+7 123-456-78-90;facebook;0008;10.10.2024;34564;10PLN;TerraFusion
+c009;Emily;Lee;Garcia;2001-06-10;US;f;333.222.1111;pinterest;0009;11.10.2024;34564;10PLN;TerraFusion
+c010;David;Clark;Wilson;1995-09-12;US;m;+81 (0) 90-1234-5678;facebo??ok;0010;12.10.2024;34564;10PLN;Zenitha
+c011;Sophia;Taylor;Martinez;1989-02-25;PL;f;(111) 222-3333;pinterest;0011;13.10.2024;346543;50PLN;Zenitha
+c012;WilliAM;Moore;Hernandez;1973-08-05;PL;m;+49 123-4567890;facebook;0012;10.10.2024;346543;10EUR;Zenitha
+c013;Olivia;Miller;Lopez;1980-04-17;PL;f;777-888-9999;pinterest;0013;01.11.2024;346543;10EUR;Zenitha
+c014;Daniel;White;Gonzalez;1992-12-08;DE;-;+61 (02) 1234 5678;pinterest;0014;11.10.2024;346543;5EUR;Zenitha
+c015;Ava;Wilson;Perez;2005-03-30;PL;f;555.444.3333;direct;0015;01.11.2024;65443;8USD;Eisco
+c015;Ava;Wilson;Perez;2005-03-30;PL;f;555.444.3333;direct;0015;01.11.2024;34534;7PLN;Eisco
+c017;Mia;Anderson;Sanchez;1997-05-14;DE;f;999-888-7777;paid;0017;01.11.2024;6543;90PLN;Eisco
+c018;Alexander;Harris;Young;1982-10-18;PL;m;+7 123-456-78-90;pinterest;0018;01.11.2024;3425;15EUR;TerraFusion
+c019;Charlotte;Martin;Torres;2000-11-23;PL;f;333.222.1111;pinterest;0019;02.11.2024;3425;22EUR;TerraFusion
+c020;Benjamin;Garcia;Flores;1976-06-28;PL;m;+81 (0) 90-1234-5678;paid;0020;11.10.2024;3425;22EUR;Eisco
+c020;Benjamin;Garcia;Flores;1976-06-28;PL;m;+81 (0) 90-1234-5678;paid;0020;11.10.2024;3425;22EUR;Eisco
+c020;Benjamin;Garcia;Flores;1976-06-28;PL;m;+81 (0) 90-1234-5678;paid;0020;11.10.2024;65443;9USD;Eisco
+c023;Henry;King;Mitchell;1993-04-06;PL;m;777-888-9999;facebook;0023;10.10.2024;65443;9USD;Eisco
+c024;Scarlett;Wright;Diaz;1979-12-19;PL;f;+61 (02) 1234 5678;paid;0024;11.10.2024;65443;9USD;Eisco
+c025;Luke&;Lopez;Rivera;1984-08-22;PL;m;+1 234-567-8901;facebook;0025;01.11.2024;65443;9USD;Eisco
+c026;Lily;Young;Ward;2002-02-09;FR;f;+1 234-567-8901;pinterest;0026;02.11.2024;64334;17USD;Eisco
+c026;Lily;Young;Ward;2002-02-09;FR;f;+1 234-567-8901;pinterest;0026;02.11.2024;65443;9USD;Zenitha
+c026;Lily;Young;Ward;2002-02-09;FR;f;+1 234-567-8901;pinterest;0026;02.11.2024;65443;9USD;TerraFusion
+c029;Lucas;Parker;Carter;1974-05-18;PL;m;777-888-9999;pinterest;0029;11.10.2024;65443;9USD;TerraFusion
+c030;Zoe;Morris;Hayes;1996-08-07;PL;f;234-567-8901;pinterest;0030;11.10.2024;65443;9USD;TerraFusion
+c031;Mia;Anderson;Sanchez;1997-05-14;DE;f;+1 234-567-8901;search;0031;12.10.2024;65443;9USD;Eisco
+c031;Mia;Anderson;Sanchez;1997-05-14;DE;f;+1 234-567-8901;search;0032;13.10.2024;65443;9USD;Zenitha
+c030;Zoe;Morris;Hayes;1996-08-07;PL;f;234-567-8901;pinterest;0030;11.10.2024;65443;9USD;Zenitha
+c030;Zoe;Morris;Hayes;1996-08-07;PL;f;234-567-8901;pinterest;0030;11.10.2024;65443;9USD;Zenitha
+c018;Alexander;Harris;Young;1982-10-18;PL;m;+7 123-456-78-90;facebook;0031;11.10.2024;64334;17USD;CoreGlow
+c018;Alexander;Harris;Young;1982-10-18;PL;m;+7 123-456-78-90;paid;0032;10.10.2024;64334;17USD;CoreGlow
+;;;;;PL;;;facebook;;11.10.2024;64334;17USD;CoreGlow
+c013;Olivia;Miller;Lopez;1980-04-17;PL;f;777-888-9999;pinterest;0033;01.11.2024;64334;17USD;CoreGlow
+c013;Olivia;Miller;Lopez;1980-04-17;PL;f;777-888-9999;pinterest;0033;02.11.2024;64334;17USD;CoreGlow
+;;;;;PL;;;pinterest;0034;02.11.2024;64334;17USD;CoreGlow
+c007;Sarah;Johnson;Brown;1990-03-20;UK;f;999-888-7777;pinterest;0035;02.11.2024;64334;17USD;CoreGlow
+c031;Mia;Anderson;Sanchez;1997-05-14;DE;f;+1 234-567-8901;pinterest;0036;11.10.2024;3456;60PLN;CoreGlow
+;;;;;PL;;;search;;11.10.2024;3456;60PLN;CoreGlow
+c025;Luke&;Lopez;Rivera;1984-08-22;PL;m;+1 234-567-8901;pinterest;0037;12.10.2024;3456;60PLN;CoreGlow
+c025;Luke&;Lopez;Rivera;1984-08-22;PL;m;+1 234-567-8901;pinterest;0037;13.10.2024;3456;60PLN;CoreGlow
+;;;;;PL;;;pinterest;;11.10.2024;3456;60PLN;CoreGlow
+c031;Mia;Anderson;Sanchez;1997-05-14;DE;f;+1 234-567-8901;direct;0038;12.10.2024;3456;60PLN;CoreGlow
+c007;Sarah;Johnson;Brown;1990-03-20;UK;f;999-888-7777;direct;0039;13.10.2024;65443;9USD;CoreGlow
+c009;Emily;Lee;Garcia;2001-06-10;US;f;333.222.1111;direct;0040;14.10.2024;65443;9USD;CoreGlow
+c010;David;Clark;Wilson;1995-09-12;US;m;+81 (0) 90-1234-5678;direct;0041;15.10.2024;65443;9USD;CoreGlow
+;;;;;PL;;;direct;;16.10.2024;65443;9USD;CoreGlow
+c007;Sarah;Johnson;Brown;1990-03-20;UK;f;999-888-7777;direct;0042;17.10.2024;65443;9USD;CoreGlow
+c007;Sarah;Johnson;Brown;1990-03-20;UK;f;999-888-7777;direct;0043;18.10.2024;65443;9USD;Zenitha
