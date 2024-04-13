@@ -220,7 +220,7 @@ def run():
             table=f"{args['project']}:{dataset_name}.customer_data",
             schema=schema_definition_customer,
             create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
-            write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,   # TODO take all clients data and then deduplicated and overwrite
+            write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,
             custom_gcs_temp_location=f'gs://{output_bucket}/staging'
             )
     )
