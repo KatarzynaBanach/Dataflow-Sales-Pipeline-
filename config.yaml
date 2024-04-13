@@ -1,0 +1,14 @@
+brands:
+  - Eisco
+  - Zenitha
+  - TerraFusion
+  - CoreGlow
+  
+buckets:
+  from_client: data-from-client-123123
+  processed_data: processed-data-123123
+
+dataset:
+  name: sales
+  location: EU
+  description: "Sales data by brands"

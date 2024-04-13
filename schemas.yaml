@@ -1,0 +1,18 @@
+schema_sales:
+  client_id: STRING
+  birthday: DATE
+  nationality: STRING
+  sex: STRING
+  source: STRING
+  transaction_id: STRING
+  transation_date: DATE
+  item_id: STRING
+  price: FLOAT
+  currency: STRING
+  _created_at: DATETIME
+  _process_id: STRING
+
+schema_customers:
+  client_id: STRING
+  name: STRING
+  phone_number: STRING
