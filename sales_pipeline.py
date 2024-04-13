@@ -27,8 +27,8 @@ class SymbolsCleaning(beam.DoFn):
     import re
     row = []
     for idx, col in enumerate(element):
-        # exeption for date column
-        if idx in (4,10):
+        # exeption for date column and price
+        if idx in (4,10,12):
             row.append(col)
         else:
             row.append(re.sub(r'[#$%&.?]','',col))
@@ -61,8 +61,8 @@ def phone_number_extract(cols):
 
 def currency_extract(cols):
   import re
-  price = re.search(r'(\d+)([a-zA-Z]+)', cols[10])
-  value = price.group(1)
+  price = re.search(r'([\d.,]+)([a-zA-Z]+)', cols[10])
+  value = price.group(1).replace(',','.')
   currency = price.group(2)
   return [*cols[:10], value, currency, *cols[11:]]
 

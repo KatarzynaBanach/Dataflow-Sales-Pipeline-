@@ -1,6 +1,6 @@
 ﻿client_id;name;second_name;lastname;birthdate;nationality;sex;phone_number;source;transaction_id;transation_date;item_id;price;brand
-c001;AnN;Joh$$nson;Rodrigue.?z;2020-01-02;PL;f;(123) 456-7890;face?book;0001;10.10.2024;34574;5PLN;Eisco
-c002;MaRK;Garcia;S&mith;1999.12.04;PL;m;987-654-3210;pinte%rest;0002;11.10.2024;54364;10PLN;Zenitha
+c001;AnN;Joh$$nson;Rodrigue.?z;2020-01-02;PL;f;(123) 456-7890;face?book;0001;10.10.2024;34574;5,99PLN;Eisco
+c002;MaRK;Garcia;S&mith;1999.12.04;PL;m;987-654-3210;pinte%rest;0002;11.10.2024;54364;10.89PLN;Zenitha
 c003;NATALIE;;Pate$$l;1998-10-01;PL;f;+1 234-567-8901;direct;0003;12.10.2024;54364;10PLN;Zenitha
 c004;Amy;;Ki#m;22.04.2004;UK;f;876.543.2109;facebook;0004;13.10.2024;54364;10PLN;Zenitha
 c005;EVA;;Ki#m;22.04.2004;PL;-;+44 (0) 1234 567890;;0005;14.10.2024;54364;10PLN;TerraFusion
