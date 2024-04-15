@@ -1,9 +1,13 @@
 # Dataflow Sales Pipeline
 **_IN PROGRESS_**
 
-**Stack: Apache Beam, python, Dataflow, GCP, bash, BigQuery, Cloud Storage, Terraform**
+**STACK**
+**Apache Beam, python, Dataflow, GCP, bash, BigQuery, Cloud Storage, Terraform**
 
+**RATIONALE**
 Practice and mistakes are the best teacher. Therefore building my own pipeline, facing various challenges and requirements, coming up with 'extra' features and then trying to implement them as well as looking through the GCP documentation with Eureka moments was a great deep-dive into Cloud Data Engineering world.
+
+
 
 **PROJECT RESOURCES:**
 ![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/78d581b8-8c7f-4220-a540-698e90a05e9d)
@@ -13,7 +17,7 @@ Practice and mistakes are the best teacher. Therefore building my own pipeline, 
 ![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/06c613a4-3058-43c1-bb59-b563a51ac5b2)
 
 
-SET UP:
+**SET UP:**
 Open Cloud Shell and choose project:
 ```
 gcloud config set project <PROJECT_ID>
