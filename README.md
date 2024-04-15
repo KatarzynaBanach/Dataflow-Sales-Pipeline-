@@ -2,6 +2,7 @@
 **_IN PROGRESS_**
 
 **STACK**
+
 **Apache Beam, python, Dataflow, GCP, bash, BigQuery, Cloud Storage, Terraform**
 
 **RATIONALE**
