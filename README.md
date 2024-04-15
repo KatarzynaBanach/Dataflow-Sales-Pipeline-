@@ -1,7 +1,8 @@
 # Dataflow Sales Pipeline
-GCP | Apache Beam | Dataflow
+**Stack: Apache Beam, python, Dataflow, GCP, bash, BigQuery, Cloud Storage, Terraform**
 
 **_IN PROGRESS_**
+
 
 
 SET UP:
