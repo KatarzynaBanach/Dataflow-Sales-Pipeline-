@@ -3,7 +3,7 @@
 
 **STACK**
 
-**Apache Beam, python, Dataflow, GCP, bash, BigQuery, Cloud Storage, Terraform**
+**_Apache Beam, python, Dataflow, GCP, bash, BigQuery, Cloud Storage, Terraform_**
 
 **RATIONALE**
 Practice and mistakes are the best teacher. Therefore building my own pipeline, facing various challenges and requirements, coming up with 'extra' features and then trying to implement them as well as looking through the GCP documentation with Eureka moments was a great deep-dive into Cloud Data Engineering world.
