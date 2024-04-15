@@ -9,7 +9,12 @@
 
 Practice and mistakes are the best teacher. Therefore building my own pipeline, facing various challenges and requirements, coming up with 'extra' features and then trying to implement them as well as looking through the GCP documentation with Eureka moments was a great deep-dive into Cloud Data Engineering world.
 
-
+Brief flow & features of the Sales Pipeline Project:
+* Buckets are created using Terraform and data is loaded using cloud shell. 
+* Configuration and table schemas are taken from .yaml file.
+* Raw data in form of .csv and .txt is taken from the client's bucket.
+* Sales data is cleaned, some columns are joined (customer's names), other are split like extraction of value and currency from price.
+* 
 
 **PROJECT RESOURCES:**
 ![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/78d581b8-8c7f-4220-a540-698e90a05e9d)
