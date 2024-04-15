@@ -18,16 +18,17 @@ Change directory:
 cd Dataflow-Sales-Pipeline/Terraform/
 ```
 Change variables in files:
-* main.tf (names of buckets - the have to be unique globally)
-* variables.tf (if needed)
-* terraform.tfvars (project name and path of file with service account keys)
+* _main.tf_ (names of buckets - the have to be unique globally)
+* _variables.tf_ (if needed)
+* _terraform.tfvars_ (project name and path of file with service account keys)
 Initialize terraform, check possible changes and apply them::
 ```
 terraform init
 terraform plan
 terraform apply
 ```
-
+Come back to _Dataflow-Sales-Pipeline/_ directory.
+Change variables in files: init_settings.sh (the same name as give in _main.tf_ to bucket _client_data_)  
 
 
 ![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/78d581b8-8c7f-4220-a540-698e90a05e9d)
