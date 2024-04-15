@@ -58,7 +58,7 @@ def write_state_to_bq(pipeline_state, bucket, prefix):
       pipeline_result = 'Pipeline has failed.'
   else:
       pipeline_result = 'Pipeline in unknown state.'
-  
+
   with open(file_name, 'w') as f:
       f.write(pipeline_result)
   bucket.blob(f'{prefix}{file_name}').upload_from_filename(file_name)

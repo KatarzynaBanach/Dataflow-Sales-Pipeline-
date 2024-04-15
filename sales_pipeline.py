@@ -14,7 +14,7 @@ class SplitWords(beam.DoFn):
   def process(self, element):
     return [element.split(self.delimiter)]
 
-# Filter out rows with empty id's columns. 
+# Filter out rows with empty id's columns.
 def is_non_empty(cols):
   if cols[0] == '' or cols[9] == '':
     return False
@@ -112,6 +112,13 @@ def to_json_customers(cols):
               }
   return json_str
 
+def to_str_customers(json_line):
+  client_id = json_line['client_id']
+  name = json_line['name']
+  phone_number = json_line['phone_number']
+  return f'{client_id},{name},{phone_number}'
+
+
 def brands_to_bq(pcoll, brand, table_prefix, schema, bucket):
   return (
           pcoll
@@ -154,17 +161,17 @@ def run():
         project=args['project'],
         region=args['region'],
         job_name='salesjob',
-        temp_location=f'gs://{output_bucket}/staging', 
+        temp_location=f'gs://{output_bucket}/staging',
         staging_location=f'gs://{output_bucket}/staging',
         runner=args['runner'],
         worker_machine_type='e2-standard-2'   # all that options to config?
     )
-    
+
     p = beam.Pipeline(options=options)
 
     countries = (
     p
-    | beam.io.ReadFromText('gs://data-from-client-123123/country_codes.txt')  
+    | beam.io.ReadFromText('gs://data-from-client-123123/country_codes.txt')
     | beam.FlatMap(split_words)
     | beam.Map(parse_to_dict)
     )
@@ -186,14 +193,12 @@ def run():
         | 'Add created_at column' >> beam.Map(add_created_at)
         | 'Add id' >> beam.Map(lambda cols, id: [*cols, str(id)], id=beam.pvalue.AsSingleton(process_id))
         | 'Full country name' >> beam.Map(replace_country_code, countries=beam.pvalue.AsDict(countries))
-        # | 'Print data' >> beam.Map(print)
     )
 
     total_count = (
         cleaned_data
         | 'Total count' >> beam.combiners.Count.Globally()
-        | 'Total map' >> beam.Map(lambda x: f'Total rows: '+ str(x))
-        # | 'Total print' >> beam.Map(print) 
+        | 'Total map' >> beam.Map(lambda x: f'Total rows: '+ str(x)) 
         )
 
     count_per_source = (
@@ -201,7 +206,6 @@ def run():
         | 'Extract brands' >> beam.Map(lambda cols: (cols[12], 1))
         | 'Rows by brand' >> beam.CombinePerKey(sum)
         | 'Format' >> beam.Map(lambda x: f'{x[0]} rows: {x[1]}')
-        # | 'Print' >> beam.Map(print)
         )
 
     (
@@ -211,16 +215,27 @@ def run():
     )
 
     # Get customer data and write to bq.
-    ( 
+    new_customer_data = (
         cleaned_data
         | 'Get customer id, name and phone number' >> beam.Map(lambda cols: f'{cols[0]},{cols[1]},{cols[5]}')
+    )
+
+    old_customer_data = (
+        p
+        | beam.io.ReadFromBigQuery(table='phonic-altar-416918.sales.customer_data')
+        | beam.Map(to_str_customers)
+    )
+
+    (
+        (new_customer_data, old_customer_data)
+        | 'Join new and old data together' >> beam.Flatten()
         | 'Deduplicate' >> beam.Distinct()
         | 'Customer to json' >> beam.Map(to_json_customers)
         | 'Customers write to BQ' >> beam.io.WriteToBigQuery(
             table=f"{args['project']}:{dataset_name}.customer_data",
             schema=schema_definition_customer,
             create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
-            write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,
+            write_disposition=beam.io.BigQueryDisposition.WRITE_TRUNCATE,
             custom_gcs_temp_location=f'gs://{output_bucket}/staging'
             )
     )
@@ -228,15 +243,14 @@ def run():
     # Filter by brand and write to separate tables.
     for brand in brands_list:
       brands_to_bq(cleaned_data, brand, f"{args['project']}:{dataset_name}.", schema_definition_sales, output_bucket)
-    
+
     # Running pipeline, getting its state and writing it into Cloud Storage.
     pipeline_state = p.run().wait_until_finish()
     write_state_to_bq(pipeline_state, bucket_out, 'status/')
-    
+
     # Move files into processed folder.
-    bucket_in = gcs.Client().get_bucket(input_bucket)
-    move_processed_files(bucket_in, bucket_out, 'sales_data')
-  
+    # bucket_in = gcs.Client().get_bucket(input_bucket)
+    # move_processed_files(bucket_in, bucket_out, 'sales_data')
 
 if __name__ == '__main__':
   run()
