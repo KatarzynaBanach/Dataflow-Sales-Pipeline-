@@ -3,6 +3,8 @@
 
 **Stack: Apache Beam, python, Dataflow, GCP, bash, BigQuery, Cloud Storage, Terraform**
 
+Practice and mistakes are the best teacher. Therefore building my own pipeline, facing various challenges and requirements, coming up with 'extra' features and then trying to implement them as well as looking through the GCP documentation with Eureka moments was a great deep-dive into Cloud Data Engineering world.
+
 **PROJECT RESOURCES:**
 ![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/78d581b8-8c7f-4220-a540-698e90a05e9d)
 
