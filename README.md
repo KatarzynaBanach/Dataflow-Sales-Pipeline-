@@ -56,7 +56,11 @@ terraform plan
 terraform apply
 ```
 Come back to _Dataflow-Sales-Pipeline/_ directory.
-Change variables in files: init_settings.sh (the same name as give in _main.tf_ to bucket _client_data_)  
+Change variables in files: 
+* _init_settings.sh_ (CLIENT_BUCKET_NAME - to the same name as given in _main.tf_ to bucket _client_data_)
+* _config.yaml_ (buckets' names to the same names as given in _main.tf_)
+
+(You can changes also other variables if needed - important it that it the best practice to stick to the same region for all resouces within one project)
 
 
 
