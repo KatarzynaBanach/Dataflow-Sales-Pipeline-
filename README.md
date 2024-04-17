@@ -89,6 +89,6 @@ Results will be visible in BigQuery in dataset 'sales'.
 
 _( Waiting to be done:_
 
-_* configuration of Cloud Scheduler - so that it job could be run automatically on daily basis_
+* _configuration of Cloud Scheduler - so that it job could be run automatically on daily basis_
 
-_* seting a VM - to execute that files, instead of the cloud shell)_
+* _seting a VM - to execute that files, instead of the cloud shell)_
