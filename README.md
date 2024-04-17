@@ -12,7 +12,7 @@ _python, Apache Beam, GCP, Dataflow, BigQuery, Cloud Storage, Terraform, bash, y
 
 Practice  and mistakes are the best teacher. Therefore building my own pipeline, facing various challenges and requirements, coming up with 'extra' features and then trying to implement them as well as looking through the GCP documentation with Eureka moments was a great deep-dive into Cloud Data Engineering world.
 
-**Flow & features of the Sales Pipeline:**
+### **Flow & features of the Sales Pipeline:**
 * Buckets are created using Terraform and raw data is loaded using cloud shell.
 * Parameters such as project, region and type of runner are passed as command line arguments. 
 * Configuration and table schemas are taken from .yaml file.
