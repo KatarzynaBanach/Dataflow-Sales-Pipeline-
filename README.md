@@ -88,5 +88,7 @@ Results will be visible in BigQuery in dataset 'sales'.
 * Lack of resources in a choosen region at the moment -> try another region / zone.
 
 _( Waiting to be done:_
+
 _* configuration of Cloud Scheduler - so that it job could be run automatically on daily basis_
+
 _* seting a VM - to execute that files, instead of the cloud shell)_
