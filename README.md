@@ -1,7 +1,7 @@
 # Dataflow Sales Pipeline
 **_IN PROGRESS_**
 
-###**STACK:**
+### **STACK:**
 
 _python, Apache Beam, GCP, Dataflow, BigQuery, Cloud Storage, Terraform, bash, yaml_
 
