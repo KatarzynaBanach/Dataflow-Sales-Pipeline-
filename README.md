@@ -72,7 +72,8 @@ python3 sales_pipeline.py --project=<PROJECT_ID> --region=<REGION> <--DirectRunn
 sh submit_pipeline.sh
 ```
 It takes from 5 to 15 minutes (local running is fasther in case of that pipeline then running it with Dataflow). If --DataflowRunner is choosen you can check job progress and possible error in tab Dataflow -> Jobs.
-![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/02b134df-e0ef-4379-bda1-53737223822e)
+
+<img src="[https://your-image-url.type](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/02b134df-e0ef-4379-bda1-53737223822e)" width="100" height="100">
 If job status is 'Succeeded' that job was run properly! Congrats!
 Details can be found in <output_bucket>/status/pipeline_status.txt and <output_bucket>/status/processed_rows*.txt.
 Results will be visible in BigQuery in dataset sales.
