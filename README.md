@@ -5,12 +5,12 @@
 
 _python, Apache Beam, GCP, Dataflow, BigQuery, Cloud Storage, Terraform, bash, yaml_
 
-### **PROJECT RESOURCES:**
-![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/fa6c674c-e16b-4f00-8f39-fb4b86d46d00)
-
 ### **RATIONALE:**
 
 Practice  and mistakes are the best teacher. Therefore building my own pipeline, facing various challenges and requirements, coming up with 'extra' features and then trying to implement them as well as looking through the GCP documentation with Eureka moments was a great deep-dive into Cloud Data Engineering world.
+
+### **PROJECT RESOURCES:**
+![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/fa6c674c-e16b-4f00-8f39-fb4b86d46d00)
 
 ### **FLOW & FEATURES OF THE SALES PIPELINE:**
 * Buckets are created using Terraform and raw data is loaded using cloud shell.
