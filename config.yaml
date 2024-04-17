@@ -4,9 +4,13 @@ brands:
   - TerraFusion
   - CoreGlow
 
+dataflow:
+  job_name: salesjob
+  worker_machine_type: e2-standard-2
+
 buckets:
-  from_client: data-from-client-123123
-  processed_data: processed-data-123123
+  from_client: data-from-client-123123  # TOCHANGE to the same name as givem in main.tf to bucket client_data
+  processed_data: processed-data-123123  # TOCHANGE to the same name as given in main.tf to bucket processed_data
 
 dataset:
   name: sales
