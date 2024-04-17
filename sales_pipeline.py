@@ -259,8 +259,8 @@ def run():
     write_state_to_bq(pipeline_state, bucket_out, 'status/')
     
     # Move files into processed folder.
-    # bucket_in = gcs.Client().get_bucket(input_bucket)
-    # move_processed_files(bucket_in, bucket_out, 'sales_data')
+    # bucket_in = gcs.Client().get_bucket(input_bucket)  # UNNCOMMENTME
+    # move_processed_files(bucket_in, bucket_out, 'sales_data')  # UNNCOMMENTME
   
 
 if __name__ == '__main__':
