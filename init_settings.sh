@@ -1,6 +1,5 @@
-CLIENT_BUCKET_NAME=data-from-client-123123
+CLIENT_BUCKET_NAME=data-from-client-123123  # TOCHANGE to the same name as given in main.tf to bucket client_data
 
-# any other apis?
 gcloud services disable dataflow.googleapis.com --force
 gcloud services enable dataflow.googleapis.com
 
