@@ -14,7 +14,7 @@ class SplitWords(beam.DoFn):
   def process(self, element):
     return [element.split(self.delimiter)]
 
-# Filter out rows with empty id's columns.
+# Filter out rows with empty id's columns. 
 def is_non_empty(cols):
   if cols[0] == '' or cols[9] == '':
     return False
@@ -137,7 +137,7 @@ def brands_to_bq(pcoll, brand, table_prefix, schema, bucket):
 
 def run():
 
-    # Loading configuration from yaml.
+    # Load configuration from yaml.
     config = load_from_yaml('config.yaml')
     brands_list = config['brands']
     input_bucket = config['buckets']['from_client']
@@ -147,6 +147,8 @@ def run():
     dataset_desc = config['dataset']['description']
     schema_definition_sales = schema_definition_str(load_from_yaml('schemas.yaml')['schema_sales'])
     schema_definition_customer = schema_definition_str(load_from_yaml('schemas.yaml')['schema_customers'])
+    job_name = config['dataflow']['job_name']
+    worker_machine_type = config['dataflow']['worker_machine_type']
 
     # Clear bucket with results.
     bucket_out = gcs.Client().get_bucket(output_bucket)
@@ -160,27 +162,31 @@ def run():
     options = PipelineOptions(
         project=args['project'],
         region=args['region'],
-        job_name='salesjob',
-        temp_location=f'gs://{output_bucket}/staging',
+        job_name=job_name,
+        temp_location=f'gs://{output_bucket}/staging', 
         staging_location=f'gs://{output_bucket}/staging',
         runner=args['runner'],
-        worker_machine_type='e2-standard-2'   # all that options to config?
+        worker_machine_type=worker_machine_type   # all that options to config?
     )
 
+    # Create a pipeline.
     p = beam.Pipeline(options=options)
 
+    # Load countries mapping from file. 
     countries = (
     p
-    | beam.io.ReadFromText('gs://data-from-client-123123/country_codes.txt')
+    | beam.io.ReadFromText(f'gs://{input_bucket}/country_codes.txt')
     | beam.FlatMap(split_words)
     | beam.Map(parse_to_dict)
     )
 
+    # Create process_id for each pipeline run.
     process_id = p | 'Create process identifier' >> beam.Create(generate_uuid())
 
+    # Clean sales data & mapping country names.
     cleaned_data = (
         p
-        | 'Read from File' >> beam.io.textio.ReadFromText('gs://data-from-client-123123/sales_data*.csv', skip_header_lines=True)
+        | 'Read from File' >> beam.io.textio.ReadFromText('gs://{input_bucket}/sales_data*.csv', skip_header_lines=True)
         | 'Get rid of duplicates' >> beam.Distinct()
         | 'Split rows' >> beam.ParDo(SplitWords(delimiter=';'))
         | 'Filter out rows with empty ids' >> beam.Filter(is_non_empty)
@@ -195,12 +201,13 @@ def run():
         | 'Full country name' >> beam.Map(replace_country_code, countries=beam.pvalue.AsDict(countries))
     )
 
+    # Count of all rows. 
     total_count = (
         cleaned_data
         | 'Total count' >> beam.combiners.Count.Globally()
         | 'Total map' >> beam.Map(lambda x: f'Total rows: '+ str(x)) 
         )
-
+    # Count of rows per source. 
     count_per_source = (
         cleaned_data
         | 'Extract brands' >> beam.Map(lambda cols: (cols[12], 1))
@@ -208,25 +215,28 @@ def run():
         | 'Format' >> beam.Map(lambda x: f'{x[0]} rows: {x[1]}')
         )
 
+    # Write total count and count per source into bucket.
     (
         (total_count, count_per_source)
         | beam.Flatten()
         | beam.io.WriteToText(f'gs://{output_bucket}/status/processed_rows',file_name_suffix='.txt')
     )
 
-    # Get customer data and write to bq.
-    new_customer_data = (
+    # Take the customer data from new sales files.
+    new_customer_data = ( 
         cleaned_data
         | 'Get customer id, name and phone number' >> beam.Map(lambda cols: f'{cols[0]},{cols[1]},{cols[5]}')
     )
 
+    # Take the customer data already loaded from BigQuery. 
     old_customer_data = (
         p
-        | beam.io.ReadFromBigQuery(table='phonic-altar-416918.sales.customer_data')
+        | beam.io.ReadFromBigQuery(table=f"{args['project']}.sales.customer_data")  #hrdcoded
         | beam.Map(to_str_customers)
     )
 
-    (
+    # Merge new and old customer data -> deduplicated -> write into BigQuery.
+    (   
         (new_customer_data, old_customer_data)
         | 'Join new and old data together' >> beam.Flatten()
         | 'Deduplicate' >> beam.Distinct()
@@ -240,17 +250,18 @@ def run():
             )
     )
 
-    # Filter by brand and write to separate tables.
+    # Filter sales by brand and write to separate tables.
     for brand in brands_list:
       brands_to_bq(cleaned_data, brand, f"{args['project']}:{dataset_name}.", schema_definition_sales, output_bucket)
-
-    # Running pipeline, getting its state and writing it into Cloud Storage.
+    
+    # Run pipeline, getting its state and writing it into Cloud Storage.
     pipeline_state = p.run().wait_until_finish()
     write_state_to_bq(pipeline_state, bucket_out, 'status/')
-
+    
     # Move files into processed folder.
     # bucket_in = gcs.Client().get_bucket(input_bucket)
     # move_processed_files(bucket_in, bucket_out, 'sales_data')
+  
 
 if __name__ == '__main__':
   run()
