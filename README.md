@@ -60,6 +60,7 @@ Change variables in files:
 * _init_settings.sh_ (CLIENT_BUCKET_NAME - to the same name as given in _main.tf_ to bucket _client_data_)
 * _config.yaml_ (buckets' names to the same names as given in _main.tf_)
 (You can changes also other variables if needed - important it that it the best practice to stick to the same region for all resouces within one project)
+(In the file _sales_pipeline.py_ two lines that move data files from input bucket into outbucket at the end of each pipeline are commented - if necessary you should uncomment them - find them looking for _# UNNCOMMENTME_)
 
 Now when all infastructure is set and variables are appropriate the pipeline can be run:
 * either directly in cloud shell with proper parameters:
