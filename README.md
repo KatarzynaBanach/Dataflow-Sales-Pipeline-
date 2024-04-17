@@ -76,7 +76,7 @@ If job status is 'Succeeded' that job was run properly! Congrats!
 Details can be found in <output_bucket>/status/pipeline_status.txt and <output_bucket>/status/processed_rows*.txt.
 Results will be visible in BigQuery in dataset sales.
 
-Possible causes of errors:
+**Possible causes of errors:**
 * Some required API is not allowed.
 * Inconsistencies in variable between terraform, init_setup.py and command line arguments.
 * Inconsistencies in regions and zones.
