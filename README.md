@@ -60,6 +60,15 @@ Change variables in files:
 * _init_settings.sh_ (CLIENT_BUCKET_NAME - to the same name as given in _main.tf_ to bucket _client_data_)
 * _config.yaml_ (buckets' names to the same names as given in _main.tf_)
 
+Now when all infastructure is set and variables are appropriate the pipeline can be run:
+* either directly in cloud shell with proper parameters:
+```
+python3 sales_pipeline.py --project=<PROJECT_ID> --region=<REGION> <--DirectRunner or --DataflowRunner or empty - default is DirectRunner>
+```
+* or executing file submit_pipeline.sh with the same command as above, but I find it more convenient (in that case variables in those file need to be changer and proper line of code commented)
+```
+sh submit_pipeline.sh
+``` 
 (You can changes also other variables if needed - important it that it the best practice to stick to the same region for all resouces within one project)
 
 
