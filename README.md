@@ -5,11 +5,11 @@
 
 _python, Apache Beam, GCP, Dataflow, BigQuery, Cloud Storage, Terraform, bash, yaml_
 
-**RATIONALE:**
+### **RATIONALE:**
 
-Practice and mistakes are the best teacher. Therefore building my own pipeline, facing various challenges and requirements, coming up with 'extra' features and then trying to implement them as well as looking through the GCP documentation with Eureka moments was a great deep-dive into Cloud Data Engineering world.
+Practice  and mistakes are the best teacher. Therefore building my own pipeline, facing various challenges and requirements, coming up with 'extra' features and then trying to implement them as well as looking through the GCP documentation with Eureka moments was a great deep-dive into Cloud Data Engineering world.
 
-Flow & features of the Sales Pipeline:
+**Flow & features of the Sales Pipeline:**
 * Buckets are created using Terraform and raw data is loaded using cloud shell.
 * Parameters such as project, region and type of runner are passed as command line arguments. 
 * Configuration and table schemas are taken from .yaml file.
@@ -26,13 +26,13 @@ Flow & features of the Sales Pipeline:
 * A status of pipeline is written into bucket.
 * Files with data that have been processed are moved to another bucket.
 
-**PROJECT RESOURCES:**
+### **PROJECT RESOURCES:**
 ![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/fa6c674c-e16b-4f00-8f39-fb4b86d46d00)
 
-**DATAFLOW JOB:**
+### **DATAFLOW JOB:**
 ![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/06c613a4-3058-43c1-bb59-b563a51ac5b2)
 
-**SET UP:**
+### **SET UP:**
 Open Cloud Shell and choose project:
 ```
 gcloud config set project <PROJECT_ID>
