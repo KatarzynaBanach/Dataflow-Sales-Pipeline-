@@ -17,7 +17,8 @@ Brief flow & features of the Sales Pipeline Project:
 * 
 
 **PROJECT RESOURCES:**
-![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/78d581b8-8c7f-4220-a540-698e90a05e9d)
+![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/fa6c674c-e16b-4f00-8f39-fb4b86d46d00)
+
 
 
 **DATAFLOW JOB:**
