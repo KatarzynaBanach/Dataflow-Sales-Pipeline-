@@ -59,6 +59,7 @@ Come back to _Dataflow-Sales-Pipeline/_ directory.
 Change variables in files: 
 * _init_settings.sh_ (CLIENT_BUCKET_NAME - to the same name as given in _main.tf_ to bucket _client_data_)
 * _config.yaml_ (buckets' names to the same names as given in _main.tf_)
+(You can changes also other variables if needed - important it that it the best practice to stick to the same region for all resouces within one project)
 
 Now when all infastructure is set and variables are appropriate the pipeline can be run:
 * either directly in cloud shell with proper parameters:
@@ -68,8 +69,17 @@ python3 sales_pipeline.py --project=<PROJECT_ID> --region=<REGION> <--DirectRunn
 * or executing file submit_pipeline.sh with the same command as above, but I find it more convenient (in that case variables in those file need to be changer and proper line of code commented)
 ```
 sh submit_pipeline.sh
-``` 
-(You can changes also other variables if needed - important it that it the best practice to stick to the same region for all resouces within one project)
+```
+It should take from 5 to 15 minutes (local running is fasther in case of that pipeline then running it with Dataflow). If --DataflowRunner is choosen you can check job progress and possible error in tab Dataflow -> Jobs.
+![obraz](https://github.com/KatarzynaBanach/Dataflow-Sales-Pipeline/assets/102869680/02b134df-e0ef-4379-bda1-53737223822e)
+If job status is 'Succeeded' that job was run properly! Congrats!
+Details can be found in <output_bucket>/status/pipeline_status.txt and <output_bucket>/status/processed_rows*.txt.
+Results will be visible in BigQuery in dataset sales.
 
-
-
+Possible causes of errors:
+* Some required API is not allowed.
+* Inconsistencies in variable between terraform, init_setup.py and command line arguments.
+* Inconsistencies in regions and zones.
+* Lack of appropriate permissions for used service account.
+* Resource pool exhausted for Dataflow.
+* Lack of resources in a choosen region at the moment -> try another region / zone.
