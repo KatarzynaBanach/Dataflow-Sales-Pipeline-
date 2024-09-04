@@ -16,7 +16,7 @@ Practice and mistakes are the best teachers. Therefore building my own pipeline,
 * Parameters such as **project, region** and type of **runner** are passed **as command line arguments**. 
 * **Configuration** and **table schemas** are taken **from .yaml** file.
 * Files with row count and status from the previously run pipeline are **removed from bucket**. 
-* **Dataset is created** (in not exists) 
+* **Dataset is created** (if not exists) 
 * **Raw data** in the form of .**csv and .txt is loaded** from the client's bucket.
 * Sales data is cleaned: some **columns are joined** (customer's names), other are split (**the extraction of value and currency** from price), rows with **no id-s are dropped**, deduplication is done.
 * Unwanted **symbols are removed** (using regex), **dates are unified**, mapping of sex takes place, **phone numbers** in various formats **are extracted**.
